@@ -13,17 +13,9 @@ public class IslandController {
         return map;
     }
 
-    public SimulationSettings getSettings() {
-        return settings;
-    }
-
     public IslandController(IslandMap map, SimulationSettings settings) {
         this.map = map;
         this.percentOfEating = settings.getPercentOfEating();
         this.settings = settings;
-    }
-
-    public Map<String, Map<String, Integer>> getPercentOfEating() {
-        return percentOfEating;
     }
 }

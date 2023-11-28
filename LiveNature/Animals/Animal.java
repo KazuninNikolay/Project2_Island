@@ -70,10 +70,6 @@ public abstract class Animal implements LiveNature {
         return maxNumberPerCell;
     }
 
-    public double getAmountOfFoodToSatiate() {
-        return amountOfFoodToSatiate;
-    }
-
     public int getSpeed() {
         return speed;
     }

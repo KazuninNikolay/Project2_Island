@@ -18,9 +18,6 @@ public class Location {
     public Map<String, Integer> getEntitiesStaticCount() {
         return entitiesStaticCount;
     }
-    public int getLiveEntities() {
-        return entitiesStaticCount.size();
-    }
 
     public void addEntity(LiveNature entity) {
         this.entities.add(entity);

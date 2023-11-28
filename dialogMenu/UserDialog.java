@@ -7,10 +7,6 @@ import java.util.Scanner;
 public class UserDialog {
     private final SimulationSettings settings;
 
-    public SimulationSettings getSettings() {
-        return settings;
-    }
-
     public UserDialog(SimulationSettings settings) {
         this.settings = new SimulationSettings();
 

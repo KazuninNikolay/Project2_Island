@@ -19,14 +19,13 @@ public class SimulationAction {
     private final SimulationSettings settings;
     private final int CHANCE_TO_REPRODUCE;
     private final int DECLINE_IN_HEALTH;
-    private final int MAX_CHANCE = 100;
     private final int NUMBER_ANIMALS_GAMEOVER;
     private int NUMBER_ITERATIONS;
-    private List<LiveNature> deathList = new ArrayList<>();
+    private final List<LiveNature> deathList = new ArrayList<>();
 
     public void liveCycle() {
         boolean isLiveAnimal = true;
-
+        int iterationCount = 0;
         while (NUMBER_ITERATIONS > 1 && isLiveAnimal) {
             int live = 0;
             for (int coordY = 0; coordY < locations.length; coordY++) {
@@ -35,8 +34,7 @@ public class SimulationAction {
                     recoveryPlant(coordY, coordX);
                     for (Animal animal : locations[coordY][coordX].getAnimals()) {
                         healthDown(animal);
-                        live += locations[coordY][coordX].getAnimals().size();
-                        if (animal.getHealthScale() > 10) {
+                        if (animal.getHealthScale() > 0) {
                             LiveNature food = getRandomEat(animal, foodToCheck);
                             animal.eat(food);
                             death(coordY, coordX, food);
@@ -46,13 +44,11 @@ public class SimulationAction {
                             death(coordY, coordX, animal);
                         }
                     }
+                    live += locations[coordY][coordX].getAnimals().size();
                 }
             }
+            isLiveAnimal = live > NUMBER_ANIMALS_GAMEOVER;
             NUMBER_ITERATIONS--;
-            isLiveAnimal = live - deathList.size() > NUMBER_ANIMALS_GAMEOVER;
-            System.out.println("------------");
-            islandMap.printCurrentFieldState();
-
         }
     }
 
@@ -99,12 +95,13 @@ public class SimulationAction {
         int sumEntityOnCell =
                 locations[coordY][coordX].getEntitiesStaticCount().get(getSimpleName(animal)) != null ?
                         locations[coordY][coordX].getEntitiesStaticCount().get(getSimpleName(animal)) : 0;
-        if (sumEntityOnCell > 2 && getRandomReproduce(animal)) {
+        if (sumEntityOnCell > 2 && getRandomReproduce()) {
             locations[coordY][coordX].addEntity(animal.reproduce());
         }
     }
 
-    private boolean getRandomReproduce(Animal animal) {
+    private boolean getRandomReproduce() {
+        int MAX_CHANCE = 100;
         return ThreadLocalRandom.current().nextInt(MAX_CHANCE) < CHANCE_TO_REPRODUCE;
     }
 
@@ -159,9 +156,8 @@ public class SimulationAction {
         return liveNature.getClass().getSimpleName();
     }
 
-    public SimulationAction(Location[][] locations, SimulationSettings settings,
-                            IslandMap islandMap) {
-        this.locations = locations;
+    public SimulationAction(SimulationSettings settings, IslandMap islandMap) {
+        this.locations = islandMap.getLocations();
         this.settings = settings;
         this.percentOfEating = settings.getPercentOfEating();
         this.islandMap = islandMap;

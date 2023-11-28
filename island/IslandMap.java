@@ -52,6 +52,7 @@ public class IslandMap {
     }
 
     public void printCurrentFieldState() {
+        System.out.println("-".repeat(1000));
         for (int coordY = 0; coordY < getLocations().length; coordY++) {
             for (int coordX = 0; coordX < getLocations()[coordY].length; coordX++) {
                 System.out.print(getLocations()[coordY][coordX].getEntities());

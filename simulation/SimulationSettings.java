@@ -12,7 +12,7 @@ import java.util.Map;
 public class SimulationSettings {
     private int widthMap = 100;
     private int heightMap = 20;
-    private int CHANCE_TO_REPRODUCE = 40;
+    private int CHANCE_TO_REPRODUCE = 30;
     private int DECLINE_IN_HEALTH = 30;
     private int NUMBER_ITERATIONS = 500;
     private int NUMBER_ANIMALS_GAMEOVER = 0;
