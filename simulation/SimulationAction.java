@@ -13,7 +13,6 @@ import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SimulationAction {
-    private final IslandMap islandMap;
     private final Map<String, Map<String, Integer>> percentOfEating;
     private final Location[][] locations;
     private final SimulationSettings settings;
@@ -25,7 +24,6 @@ public class SimulationAction {
 
     public void liveCycle() {
         boolean isLiveAnimal = true;
-        int iterationCount = 0;
         while (NUMBER_ITERATIONS > 1 && isLiveAnimal) {
             int live = 0;
             for (int coordY = 0; coordY < locations.length; coordY++) {
@@ -160,7 +158,6 @@ public class SimulationAction {
         this.locations = islandMap.getLocations();
         this.settings = settings;
         this.percentOfEating = settings.getPercentOfEating();
-        this.islandMap = islandMap;
         this.NUMBER_ITERATIONS = settings.getNUMBER_ITERATIONS();
         this.NUMBER_ANIMALS_GAMEOVER = settings.getNUMBER_ANIMALS_GAMEOVER();
         this.CHANCE_TO_REPRODUCE = settings.getCHANCE_TO_REPRODUCE();

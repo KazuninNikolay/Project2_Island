@@ -5,10 +5,8 @@ import simulation.SimulationSettings;
 import java.util.Scanner;
 
 public class UserDialog {
-    private final SimulationSettings settings;
 
     public UserDialog(SimulationSettings settings) {
-        this.settings = new SimulationSettings();
 
         homeMenu(settings);
 
