@@ -1,4 +1,3 @@
-import settings.YamlReader;
 import simulation.SimulationStarter;
 
 public class Main {

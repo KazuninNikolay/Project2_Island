@@ -16,11 +16,14 @@ public enum LiveNatureEnum {
     BUFFALO("🐃"),
     DUCK("🦆"),
     CATERPILLAR("🐛"),
-    PLANT("🌱");
-
-    LiveNatureEnum() {
+    GRASS("🌱"),
+    OATS("🌾");
+    private final String unicodeSymbol;
+    LiveNatureEnum(String unicodeSymbol) {
+      this.unicodeSymbol = unicodeSymbol;
     }
 
-    LiveNatureEnum(String unicodeSymbol) {
+    public String getUnicodeSymbol() {
+        return unicodeSymbol;
     }
 }

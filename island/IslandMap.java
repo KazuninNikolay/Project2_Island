@@ -3,13 +3,17 @@ package island;
 import LiveNature.LiveNatureEnum;
 import LiveNature.Interface.LiveNature;
 import LiveNature.LiveNatureFactory;
-import simulation.SimulationSettings;
 
 import java.util.concurrent.ThreadLocalRandom;
 
 public class IslandMap {
     private final int height;
     private final int width;
+
+    public Location[][] getLocations() {
+        return locations;
+    }
+
     private final Location[][] locations;
     private final LiveNatureFactory creator;
     private final int INITIAL_ENTITY_ON_CELL;
@@ -19,7 +23,7 @@ public class IslandMap {
         this.width = width;
         this.INITIAL_ENTITY_ON_CELL = initialEntityOnCell;
         this.locations = new Location[height][width];
-        this.creator =new LiveNatureFactory();
+        this.creator = new LiveNatureFactory();
     }
 
     public void initialize() {
@@ -47,9 +51,19 @@ public class IslandMap {
         }
     }
 
+    public void printCurrentFieldState() {
+        for (int coordY = 0; coordY < getLocations().length; coordY++) {
+            for (int coordX = 0; coordX < getLocations()[coordY].length; coordX++) {
+                System.out.print(getLocations()[coordY][coordX].getEntities());
+            }
+            System.out.println();
+        }
+    }
+
     private LiveNature getRandomEntity() {
         LiveNatureEnum[] entityClass = LiveNatureEnum.values();
         LiveNatureEnum entity = entityClass[ThreadLocalRandom.current().nextInt(entityClass.length)];
         return creator.createLiveNature(entity);
     }
+
 }

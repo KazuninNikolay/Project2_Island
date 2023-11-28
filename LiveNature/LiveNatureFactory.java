@@ -3,7 +3,8 @@ package LiveNature;
 import LiveNature.Animals.Herbivores.*;
 import LiveNature.Animals.Predators.*;
 import LiveNature.Interface.LiveNature;
-import LiveNature.Plants.Plant;
+import LiveNature.Plants.Grass;
+import LiveNature.Plants.Oats;
 
 public class LiveNatureFactory {
     public LiveNature createLiveNature(LiveNatureEnum entity) {
@@ -23,7 +24,8 @@ public class LiveNatureFactory {
             case RABBIT -> new Rabbit();
             case BUFFALO -> new Buffalo();
             case CATERPILLAR -> new Caterpillar();
-            case PLANT -> new Plant();
+            case OATS -> new Oats();
+            case GRASS -> new Grass();
         };
     }
 }

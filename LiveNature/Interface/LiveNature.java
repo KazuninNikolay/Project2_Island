@@ -1,7 +1,5 @@
 package LiveNature.Interface;
 
-import LiveNature.Animals.Animal;
-
 public interface LiveNature {
     LiveNature reproduce();
 

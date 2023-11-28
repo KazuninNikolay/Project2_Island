@@ -10,13 +10,16 @@ import java.util.List;
 import java.util.Map;
 
 public class Location {
-    private int coordX;
-    private int coordY;
-    private List<LiveNature> entities;
-    private Map<String, Integer> entitiesStaticCount;
+    private final int coordX;
+    private final int coordY;
+    private final List<LiveNature> entities;
+    private final Map<String, Integer> entitiesStaticCount;
 
     public Map<String, Integer> getEntitiesStaticCount() {
         return entitiesStaticCount;
+    }
+    public int getLiveEntities() {
+        return entitiesStaticCount.size();
     }
 
     public void addEntity(LiveNature entity) {

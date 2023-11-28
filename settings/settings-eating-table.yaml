@@ -1,10 +1,6 @@
 ---
 percentOfEating:
   Wolf:
-    Boa: 0
-    Fox: 0
-    Bear: 0
-    Eagle: 0
     Horse: 10
     Deer: 15
     Rabbit: 60
@@ -14,45 +10,18 @@ percentOfEating:
     Boar: 15
     Buffalo: 10
     Duck: 40
-    Caterpillar: 0
-    Plant: 0
   Boa:
-    Wolf: 0
     Fox: 15
-    Bear: 0
-    Eagle: 0
-    Horse: 0
-    Deer: 0
     Rabbit: 20
     Mouse: 40
-    Goat: 0
-    Sheep: 0
-    Boar: 0
-    Buffalo: 0
     Duck: 10
-    Caterpillar: 0
-    Plant: 0
   Fox:
-    Wolf: 0
-    Boa: 0
-    Bear: 0
-    Eagle: 0
-    Horse: 0
-    Deer: 0
     Rabbit: 70
     Mouse: 90
-    Goat: 0
-    Sheep: 0
-    Boar: 0
-    Buffalo: 0
     Duck: 60
     Caterpillar: 40
-    Plant: 0
   Bear:
-    Wolf: 0
     Boa: 80
-    Fox: 0
-    Eagle: 0
     Horse: 40
     Deer: 80
     Rabbit: 80
@@ -62,24 +31,11 @@ percentOfEating:
     Boar: 50
     Buffalo: 20
     Duck: 10
-    Caterpillar: 0
-    Plant: 0
   Eagle:
-    Wolf: 0
-    Boa: 0
     Fox: 10
-    Bear: 0
-    Horse: 0
-    Deer: 0
     Rabbit: 90
     Mouse: 90
-    Goat: 0
-    Sheep: 0
-    Boar: 0
-    Buffalo: 0
     Duck: 80
-    Caterpillar: 0
-    Plant: 0
   Horse:
     Plant: 100
   Deer:
